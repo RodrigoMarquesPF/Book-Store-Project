@@ -32,7 +32,7 @@ const ShowBook = () => {
     {loading ? (
       <Spinner />
     ) : (
-      <div className='flex flex-col border-2 border-orange-400 rounded-xl w-fit p-4'>
+      <div className='flex flex-col border-2 border-orange-400 rounded-xl w-fit p-4 '>
         <div className='my-4'>
           <span className='text-xl mr-4 text-gray-500'>Id</span>
           <span>{book._id}</span>
@@ -54,7 +54,7 @@ const ShowBook = () => {
           <span>{new Date(book.createdAt).toString()}</span>
         </div>
         <div className='my-4'>
-          <span className='text-xl mr-4 text-gray-500'>LUltima atualização</span>
+          <span className='text-xl mr-4 text-gray-500'>Ultima atualização</span>
           <span>{new Date(book.updatedAt).toString()}</span>
         </div>
       </div>

@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "../../components/ui/button";
 import { Input } from "../../components/ui/input"
 import { Label } from "../../components/ui/label"
+import { toast } from "sonner";
 
 
 const CreateBooks = () => {
@@ -26,17 +27,20 @@ const CreateBooks = () => {
       .post("http://localhost:5555/books", data)
       .then(() => {
         setLoading(false);
+        toast.success("Book Created successfully");
         //enqueueSnackbar("Book Created successfully", { variant: "success" });
         navigate('/');
       })
       .catch((error) => {
         setLoading(false);
         alert('An error happened. Please Chack console');
+        toast.error("Error");
         //enqueueSnackbar("Error", { variant: "error" });
         console.error(error);
       });
   };
   return (
+    
     <div className="p-4">
       <BackButton />
       <h1 className="text-3xl my-4">Criar um Livro</h1>
@@ -72,7 +76,7 @@ const CreateBooks = () => {
           />
         </div>
         <Button  onClick={handleSaveBook}> Salvar</Button>
-       
+      
       </div>
     </div>
   );

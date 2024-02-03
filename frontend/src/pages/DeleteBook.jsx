@@ -4,6 +4,10 @@ import Spinner from '../components/Spinner';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Button } from "../../components/ui/button";
+import {  toast } from "sonner";
+
+
+
 
 const DeleteBook = () => {
   const [loading, setLoading] = useState(false);
@@ -16,18 +20,20 @@ const DeleteBook = () => {
       .delete(`http://localhost:5555/books/${id}`)
       .then(() => {
         setLoading(false);
+        toast.success('Book Deleted successfully')
         //enqueueSnackbar('Book Deleted successfully', { variant: 'success' });
         navigate('/');
       })
       .catch((error) => {
         setLoading(false);
         // alert('An error happened. Please Chack console');
-        //enqueueSnackbar('Error', { variant: 'error' });
+        toast.error('Error')
         console.log(error);
       });
   };
   return (
     <div className='p-4'>
+      
       <BackButton />
       <h1 className='text-3xl my-4'>Deletar Livro</h1>
       {loading ? <Spinner /> : ''}
@@ -38,7 +44,9 @@ const DeleteBook = () => {
           
           onClick={handleDeleteBook}
         >
+          
           Sim, delete isso.
+          
         </Button>
       </div>
     </div>
