@@ -14,14 +14,14 @@ app.use(express.json());
 
 //Middleware for handling CORS POLICY
 //option 1
-//app.use(cors())
+app.use(cors())
 
 //option2 
-app.use(cors({
+/*app.use(cors({
     origin:'http://localhost:5555',
     methods:['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders:['Content-Type'],
-}));
+}));*/
 
 app.get("/", (request, response) => {
   console.log(request);
